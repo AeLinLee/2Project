@@ -6,12 +6,7 @@
 $(document).ready(function(){
 
 	
-	//로그인 서브밋
-	$("form").on("submit",function(){
-		alert("login submit");
-		this.action="login";   //LoginServlet의 맵핑값
-		this.method="post";
-	});//end 로그인 서브밋
+
 	
 	
 });//end ready()

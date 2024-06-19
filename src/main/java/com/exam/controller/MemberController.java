@@ -4,6 +4,8 @@ import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -72,15 +74,16 @@ public class MemberController {
 	@GetMapping("/mypage")
 	public String mypage(ModelMap m) {
 		
-		// 세션에 저장된 MemberDTO 얻기
-		MemberDTO dto = (MemberDTO)m.getAttribute("login");
-		logger.info("logger:mypage:{}", dto);
-		String userid = dto.getUserid();
+		//AuthProvider에 저장된 Authentication 얻자
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		logger.info("logger:Authentication:{}", auth);
+		MemberDTO xxx = (MemberDTO)auth.getPrincipal();
+		logger.info("logger:Member:{}", xxx);
 		
-		MemberDTO searchDTO = memberService.mypage(userid);
-		m.addAttribute("login", searchDTO);
 		
-		return "mypage";
+		return "redirect:mypage";
+		
+
 	}
 	
 
