@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+
 import com.exam.dto.MemberDTO;
 import com.exam.mapper.MemberMapper;
 
@@ -37,5 +38,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberDTO mypage(String userid) {
 		return memberMapper.mypage(userid);
+	}
+	
+	@Override
+	public MemberDTO findById(String userid) {
+		return memberMapper.findById(userid);
 	}
 }

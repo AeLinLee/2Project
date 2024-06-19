@@ -61,6 +61,16 @@ public class LoginController {
 		
 		return "redirect:main";
 	}
+	@PostMapping(value={"/login_fail"})
+	public String showlogin_failPage() {
+		logger.info("logger:showlogin_failPage");
+		return "redirect:login";
+	}
+	
+	@GetMapping(value={"/login_success"})
+	public String showlogin_successPage() {
+		logger.info("logger:showlogin_successPage");
+		return "redirect:main";
+	}
 
 }
-

@@ -20,7 +20,7 @@ $(document).ready(function(){
 
 
 <div class="container">
-    <form class="row g-3 m-4">
+    <form action="auth" method="post" class="row g-3 m-4">
      <div class="row mb-3">
      <div>${errorMessage}</div>
 	 </div>

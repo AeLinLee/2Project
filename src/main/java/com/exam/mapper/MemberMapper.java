@@ -13,4 +13,5 @@ public interface MemberMapper {
 	public int memberAdd(MemberDTO dto);
 	public MemberDTO login(Map<String, String> map);
 	public MemberDTO mypage(String userid);
+	public MemberDTO findById(String userid);
 }
